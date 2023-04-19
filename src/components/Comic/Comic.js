@@ -1,9 +1,10 @@
 import "./Comic.css";
 
 const Comic = (props) => {
+  console.log("Comic Props<>>>>", props);
   return (
     <div className="comic-card">
-      <p>{props.id}</p>
+      <h2>{props.title}</h2>
     </div>
   );
 };
