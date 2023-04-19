@@ -1,3 +1,12 @@
 .comic-card {
-  border: 2px solid rgb(123, 255, 0);
+  margin: 10px 0;
+}
+
+.comic-img {
+  width: 100%;
+}
+
+.comic-title {
+  margin-top: 5px;
+  font-size: 16px;
 }
