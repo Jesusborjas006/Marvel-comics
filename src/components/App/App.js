@@ -4,9 +4,12 @@ import Form from "../Form/Form";
 import Navbar from "../Navbar/Navbar";
 import "./App.css";
 import md5 from "md5";
+import { Route, Link } from "react-router-dom";
+import ComicDetails from "../ComicDetails/ComicDetails";
 
 function App() {
   const [comics, setComics] = useState({});
+  const [displayForm, setDisplayForm] = useState(true);
 
   const getUrl = () => {
     let publicKey = "6a25bac30807eb952292f566a7bd499e";
@@ -26,11 +29,24 @@ function App() {
       .then((data) => setComics(data));
   }, []);
 
+  const toggleForm = () => {
+    setDisplayForm(!displayForm);
+  };
+
   return (
     <div>
       <Navbar />
-      <Form />
-      <ComicsContainer allComics={comics} />
+      {displayForm && <Form />}
+
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <ComicsContainer allComics={comics} toggle={toggleForm} />
+        )}
+      />
+
+      <Route path="/comicDetails" render={() => <ComicDetails />} />
     </div>
   );
 }
