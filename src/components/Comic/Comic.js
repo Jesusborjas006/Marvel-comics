@@ -1,10 +1,10 @@
 import "./Comic.css";
 
 const Comic = (props) => {
-  console.log("Comic Props<>>>>", props);
   return (
     <div className="comic-card">
-      <h2>{props.title}</h2>
+      <img className="comic-img" src={`${props.img.path}.${props.img.extension}`} alt="poster" />
+      <h2 className="comic-title">{props.title}</h2>
     </div>
   );
 };
