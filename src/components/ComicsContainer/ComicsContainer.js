@@ -1,9 +1,11 @@
 import "./ComicsContainer.css";
+import Comic from "../Comic/Comic";
 
-const ComicsContainer = () => {
+const ComicsContainer = (props) => {
+  const comicElements = props.allComics.map((comic) => <Comic id={comic.id} />);
   return (
     <div className="comics-container">
-      <h1>Comics go here!!</h1>
+      {comicElements}
     </div>
   );
 };
