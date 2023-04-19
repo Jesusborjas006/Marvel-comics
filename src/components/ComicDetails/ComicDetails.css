@@ -1,0 +1,19 @@
+.comic-details {
+  border: 2px solid black;
+  padding: 75px;
+}
+
+.back-btn {
+  background-color: rgb(120, 120, 120);
+  padding: 10px;
+  display: inline-block;
+}
+
+.detail-container {
+  border: 2px solid blue;
+  height: 500px;
+}
+
+.details-img {
+  width: 300px;
+}

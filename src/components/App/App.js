@@ -10,6 +10,7 @@ import ComicDetails from "../ComicDetails/ComicDetails";
 function App() {
   const [comics, setComics] = useState({});
   const [displayForm, setDisplayForm] = useState(true);
+  const [specificComic, setSpecificComic] = useState({});
 
   const getUrl = () => {
     let publicKey = "6a25bac30807eb952292f566a7bd499e";
@@ -23,10 +24,28 @@ function App() {
     return url;
   };
 
+  const getSpecificComic = (id) => {
+    let publicKey = "6a25bac30807eb952292f566a7bd499e";
+    let privateKey = "f6b652ef11a6f5bf655a1be8d34e48ceea22d039";
+    let ts = new Date().getTime();
+    let stringToHash = ts + privateKey + publicKey;
+    let hash = md5(stringToHash);
+    let baseUrl = `http://gateway.marvel.com/v1/public/comics/${id}`;
+    let limit = 10;
+    let url = `${baseUrl}?limit=${limit}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
+    return url;
+  };
+
   useEffect(() => {
     fetch(getUrl())
       .then((response) => response.json())
       .then((data) => setComics(data));
+  }, []);
+
+  useEffect(() => {
+    fetch(getSpecificComic(2))
+      .then((response) => response.json())
+      .then((data) => setSpecificComic(data));
   }, []);
 
   const toggleForm = () => {
@@ -37,12 +56,10 @@ function App() {
     setDisplayForm(true);
   };
 
-  console.log(displayForm);
-
   return (
     <div>
       <Navbar toggle={toggleWithLogo} />
-      {displayForm && <Form />}
+      {/* {displayForm && <Form />} */}
 
       <Route
         exact
@@ -54,7 +71,7 @@ function App() {
 
       <Route
         path="/comicDetails"
-        render={() => <ComicDetails toggle={toggleForm} />}
+        render={() => <ComicDetails specificComic={specificComic} toggle={toggleForm} />}
       />
     </div>
   );
