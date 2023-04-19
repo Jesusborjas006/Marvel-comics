@@ -4,6 +4,8 @@ import Form from "../Form/Form";
 import Navbar from "../Navbar/Navbar";
 import "./App.css";
 import md5 from "md5";
+import { Route, Link } from "react-router-dom";
+import ComicDetails from "../ComicDetails/ComicDetails";
 
 function App() {
   const [comics, setComics] = useState({});
@@ -29,8 +31,16 @@ function App() {
   return (
     <div>
       <Navbar />
+      <Link to="/comicDetails">More Details</Link>
       <Form />
-      <ComicsContainer allComics={comics} />
+
+      <Route
+        exact
+        path="/"
+        render={() => <ComicsContainer allComics={comics} />}
+      />
+
+      <Route path="/comicDetails" render={() => <ComicDetails />} />
     </div>
   );
 }
