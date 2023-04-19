@@ -1,0 +1,7 @@
+.comics-container {
+  border: 2px solid blue;
+  margin-top: 8vh;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
