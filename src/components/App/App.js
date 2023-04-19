@@ -33,9 +33,15 @@ function App() {
     setDisplayForm(!displayForm);
   };
 
+  const toggleWithLogo = () => {
+    setDisplayForm(true);
+  };
+
+  console.log(displayForm);
+
   return (
     <div>
-      <Navbar />
+      <Navbar toggle={toggleWithLogo} />
       {displayForm && <Form />}
 
       <Route
@@ -46,7 +52,10 @@ function App() {
         )}
       />
 
-      <Route path="/comicDetails" render={() => <ComicDetails />} />
+      <Route
+        path="/comicDetails"
+        render={() => <ComicDetails toggle={toggleForm} />}
+      />
     </div>
   );
 }
