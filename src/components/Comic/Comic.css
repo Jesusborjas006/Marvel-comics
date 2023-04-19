@@ -4,9 +4,11 @@
 
 .comic-img {
   width: 100%;
+  cursor: pointer;
 }
 
 .comic-title {
-  margin-top: 5px;
+  margin-top: 12px;
   font-size: 16px;
+  cursor: pointer;
 }

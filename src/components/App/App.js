@@ -31,7 +31,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Link to="/comicDetails">More Details</Link>
       <Form />
 
       <Route
