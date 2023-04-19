@@ -9,6 +9,7 @@ import ComicDetails from "../ComicDetails/ComicDetails";
 
 function App() {
   const [comics, setComics] = useState({});
+  const [displayForm, setDisplayForm] = useState(true);
 
   const getUrl = () => {
     let publicKey = "6a25bac30807eb952292f566a7bd499e";
@@ -28,15 +29,21 @@ function App() {
       .then((data) => setComics(data));
   }, []);
 
+  const toggleForm = () => {
+    setDisplayForm(!displayForm);
+  };
+
   return (
     <div>
       <Navbar />
-      <Form />
+      {displayForm && <Form />}
 
       <Route
         exact
         path="/"
-        render={() => <ComicsContainer allComics={comics} />}
+        render={() => (
+          <ComicsContainer allComics={comics} toggle={toggleForm} />
+        )}
       />
 
       <Route path="/comicDetails" render={() => <ComicDetails />} />

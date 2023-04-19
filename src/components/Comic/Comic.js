@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Comic = (props) => {
   return (
     <div className="comic-card">
-      <Link to="/comicDetails">
+      <Link to="/comicDetails" onClick={() => props.toggleForm()}>
         <img
           className="comic-img"
           src={`${props.img.path}.${props.img.extension}`}
@@ -12,7 +12,7 @@ const Comic = (props) => {
         />
       </Link>
 
-      <Link to="/comicDetails">
+      <Link to="/comicDetails" onClick={() => props.toggleForm()}>
         <h2 className="comic-title">{props.title}</h2>
       </Link>
     </div>
