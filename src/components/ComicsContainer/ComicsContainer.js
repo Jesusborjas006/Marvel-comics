@@ -10,6 +10,7 @@ const ComicsContainer = (props) => {
         id={comic.id}
         key={comic.id}
         toggleForm={props.toggle}
+        comicClicked={props.comicClicked}
       />
     ));
 
