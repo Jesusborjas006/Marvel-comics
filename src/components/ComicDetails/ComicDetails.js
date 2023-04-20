@@ -30,14 +30,18 @@ const ComicDetails = (props) => {
         <Link to="/" onClick={() => props.toggle()} className="back-btn">
           Go Back
         </Link>
-        <div className="detail-container">
-          <img
-            src={`${comicDetails.data.results[0].thumbnail.path}.${comicDetails.data.results[0].thumbnail.extension}`}
-            alt="comic"
-          />
-          <h2>{comicDetails.data.results[0].title}</h2>
-          <p>Description: {comicDetails.data.results[0].description}</p>
-          <p>Print Price: ${comicDetails.data.results[0].prices[0].price}</p>
+        <div className="main-detail-container">
+          <div className="detail-img-container">
+            <img
+              src={`${comicDetails.data.results[0].thumbnail.path}.${comicDetails.data.results[0].thumbnail.extension}`}
+              alt="comic"
+            />
+          </div>
+          <div className="detail-text-container">
+            <h2 className="detail-title">{comicDetails.data.results[0].title}</h2>
+            <p className="description">{comicDetails.data.results[0].description}</p>
+            <p className="print-price"><span>Print Price:</span> ${comicDetails.data.results[0].prices[0].price}</p>
+          </div>
         </div>
       </div>
     );
