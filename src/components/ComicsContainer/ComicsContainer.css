@@ -1,6 +1,4 @@
 .comics-container {
-  /* border: 2px solid blue; */
-  margin-top: 8vh;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 30px;
