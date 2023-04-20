@@ -13,6 +13,14 @@ const ComicDetails = (props) => {
           alt="poster"
           className="details-img"
         />
+        <h2>{props.specificComic.data.results[0].title}</h2>
+        <p>Description: {props.specificComic.data.results[0].description}</p>
+        <p>
+          Print Price: ${props.specificComic.data.results[0].prices[0].price}
+        </p>
+        <p>
+          Digital Price: ${props.specificComic.data.results[0].prices[1].price}
+        </p>
       </div>
     </div>
   );

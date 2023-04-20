@@ -24,7 +24,7 @@ function App() {
     return url;
   };
 
-  const getSpecificComic = (id) => {
+  const getSpecificUrl = (id) => {
     let publicKey = "6a25bac30807eb952292f566a7bd499e";
     let privateKey = "f6b652ef11a6f5bf655a1be8d34e48ceea22d039";
     let ts = new Date().getTime();
@@ -42,11 +42,12 @@ function App() {
       .then((data) => setComics(data));
   }, []);
 
-  useEffect(() => {
-    fetch(getSpecificComic(2))
+  const getSpecificComic = (id) => {
+    console.log("Comic is selected " + id);
+    fetch(getSpecificUrl(id))
       .then((response) => response.json())
       .then((data) => setSpecificComic(data));
-  }, []);
+  };
 
   const toggleForm = () => {
     setDisplayForm(!displayForm);
@@ -65,14 +66,16 @@ function App() {
         exact
         path="/"
         render={() => (
-          <ComicsContainer allComics={comics} toggle={toggleForm} />
+          <ComicsContainer allComics={comics} toggle={toggleForm} comicClicked={getSpecificComic} />
         )}
       />
 
-      <Route
+      {/* <Route
         path="/comicDetails"
-        render={() => <ComicDetails specificComic={specificComic} toggle={toggleForm} />}
-      />
+        render={() => (
+          <ComicDetails specificComic={specificComic} toggle={toggleForm} />
+        )}
+      /> */}
     </div>
   );
 }
