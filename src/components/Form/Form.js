@@ -1,10 +1,29 @@
+import { useState } from "react";
 import "./Form.css";
 
-const Form = () => {
+const Form = (props) => {
+  const [sortComics, setSortComics] = useState({});
+  // console.log(sortComics);
+
+  const handleSortInput = (event) => {
+    setSortComics({ [event.target.name]: event.target.value });
+  };
+
+  if(sortComics.sort === "Price") {
+    props.sortPrice()
+  } else {
+    // console.log("not sorted")
+  }
+
   return (
     <div>
       <form className="form">
-        <select className="select-input">
+        <select
+          className="select-input"
+          name="sort"
+          value={sortComics.sort}
+          onChange={(event) => handleSortInput(event)}
+        >
           <option value="">Sort</option>
           <option value="Date">Date</option>
           <option value="Issue Number">Issue Number</option>
@@ -16,6 +35,7 @@ const Form = () => {
           placeholder="Search for comic..."
         />
       </form>
+      {/* <h1>{sortComics}</h1> */}
     </div>
   );
 };

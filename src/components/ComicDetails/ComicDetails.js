@@ -5,7 +5,6 @@ import md5 from "md5";
 
 const ComicDetails = (props) => {
   const [comicDetails, setComicDetails] = useState({});
-  console.log("comic Details<>>>>>>", comicDetails);
 
   const getSpecificUrl = (id) => {
     let publicKey = "ff0d5561d11fcd117359f7100e6820aa";
