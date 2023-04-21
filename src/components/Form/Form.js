@@ -2,32 +2,20 @@ import { useState } from "react";
 import "./Form.css";
 
 const Form = (props) => {
-  const [sortComics, setSortComics] = useState({});
-  // console.log(sortComics);
+  const handleClick = () => {
+    let sortedComics = document.querySelector(".select-input");
 
-  const handleSortInput = (event) => {
-    setSortComics({ [event.target.name]: event.target.value });
+    props.sortMovieFunc(sortedComics.value);
   };
-
-  if(sortComics.sort === "Price") {
-    props.sortPrice()
-  } else {
-    // console.log("not sorted")
-  }
 
   return (
     <div>
-      <form className="form">
-        <select
-          className="select-input"
-          name="sort"
-          value={sortComics.sort}
-          onChange={(event) => handleSortInput(event)}
-        >
+      <form className="form" onChange={() => handleClick()}>
+        <select className="select-input">
           <option value="">Sort</option>
           <option value="Date">Date</option>
           <option value="Issue Number">Issue Number</option>
-          <option value="Price">Price</option>
+          <option value="Price">Price (Low to High)</option>
         </select>
         <input
           type="text"
@@ -35,7 +23,6 @@ const Form = (props) => {
           placeholder="Search for comic..."
         />
       </form>
-      {/* <h1>{sortComics}</h1> */}
     </div>
   );
 };

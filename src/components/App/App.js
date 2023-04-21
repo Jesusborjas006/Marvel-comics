@@ -42,14 +42,20 @@ function App() {
     setSpecificComicID(id);
   };
 
-  const sortComics = () => {
+  const updatedSort = (type) => {
     let result = [...comics];
 
-    result.sort((a, b) => {
-      return a.issueNumber - b.issueNumber;
-    });
-
-    setComics(result);
+    if (type === "Issue Number") {
+      result.sort((a, b) => {
+        return a.issueNumber - b.issueNumber;
+      });
+      setComics(result);
+    } else if (type === "Price") {
+      result.sort((a, b) => {
+        return a.prices[0].price - b.prices[0].price;
+      });
+      setComics(result);
+    }
   };
 
   console.log("Component rendered");
@@ -57,11 +63,7 @@ function App() {
   return (
     <div>
       <Navbar toggle={toggleWithLogo} />
-      <button className="price-btn" onClick={sortComics}>
-        Sort by Issue Number
-      </button>
-
-      {/* {displayForm && <Form />} */}
+      {displayForm && <Form sortMovieFunc={updatedSort} />}
 
       <Route
         exact

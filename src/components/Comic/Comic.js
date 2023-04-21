@@ -27,7 +27,7 @@ const Comic = (props) => {
         }}
       >
         <h2 className="comic-title">{props.title}</h2>
-        <p className="comic-price">Price: {!props.printPrice ? "Unknown" : `$${props.printPrice}`} </p>
+        <p className="comic-price">Price: {!props.printPrice ? "Not Available" : `$${props.printPrice}`} </p>
         
       </Link>
     </div>
