@@ -4,7 +4,7 @@ import Form from "../Form/Form";
 import Navbar from "../Navbar/Navbar";
 import "./App.css";
 import md5 from "md5";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import ComicDetails from "../ComicDetails/ComicDetails";
 
 function App() {
@@ -65,7 +65,9 @@ function App() {
 
       <Route
         path="/comicDetails/:id"
-        render={() => <ComicDetails toggle={toggleForm} comicId={specificComicID}  />}
+        render={() => (
+          <ComicDetails toggle={toggleForm} comicId={specificComicID} />
+        )}
       />
     </div>
   );

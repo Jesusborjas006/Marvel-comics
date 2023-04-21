@@ -1,12 +1,24 @@
 .comic-details {
-  border: 2px solid black;
   padding: 75px;
 }
 
 .back-btn {
-  background-color: rgb(120, 120, 120);
-  padding: 10px;
+  background-color: #e23e57;
+  padding: 10px 15px;
   display: inline-block;
+  color: #f1f1f1;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.back-btn:hover {
+  background-color: #b9031e;
+}
+
+.main-detail-container {
+  display: flex;
+  margin-top: 10vh;
 }
 
 .detail-container {
@@ -16,4 +28,34 @@
 
 .details-img {
   width: 300px;
+}
+
+.detail-title {
+  color: #e84545;
+  font-size: 2.6rem;
+  margin-bottom: 6vh;
+}
+
+.detail-text-container {
+  /* border: 2px solid rgb(29, 149, 59); */
+  width: 45%;
+  margin-left: 7vw;
+}
+
+.detail-text-container p {
+  color: #f1f1f1;
+  line-height: 1.5;
+  font-size: 1.15rem;
+}
+
+.description {
+  margin-bottom: 5vh;
+}
+
+.detail-text-container .print-price {
+font-size: 1.4rem;
+}
+
+span {
+  font-weight: bold;
 }
