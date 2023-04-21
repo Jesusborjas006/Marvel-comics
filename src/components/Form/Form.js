@@ -1,10 +1,8 @@
-import { useState } from "react";
 import "./Form.css";
 
 const Form = (props) => {
   const handleClick = () => {
     let sortedComics = document.querySelector(".select-input");
-
     props.sortMovieFunc(sortedComics.value);
   };
 
@@ -15,7 +13,8 @@ const Form = (props) => {
           <option value="">Sort</option>
           <option value="Date">Date</option>
           <option value="Issue Number">Issue Number</option>
-          <option value="Price">Price (Low to High)</option>
+          <option value="Low Price">Price (Low to High)</option>
+          <option value="High Price">Price (High to Low)</option>
         </select>
         <input
           type="text"

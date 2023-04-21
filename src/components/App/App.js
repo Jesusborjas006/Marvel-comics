@@ -50,15 +50,18 @@ function App() {
         return a.issueNumber - b.issueNumber;
       });
       setComics(result);
-    } else if (type === "Price") {
+    } else if (type === "Low Price") {
       result.sort((a, b) => {
         return a.prices[0].price - b.prices[0].price;
       });
       setComics(result);
+    } else if (type === "High Price") {
+      result.sort((a, b) => {
+        return b.prices[0].price - a.prices[0].price;
+      });
+      setComics(result);
     }
   };
-
-  console.log("Component rendered");
 
   return (
     <div>

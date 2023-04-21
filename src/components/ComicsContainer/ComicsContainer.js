@@ -2,7 +2,6 @@ import "./ComicsContainer.css";
 import Comic from "../Comic/Comic";
 
 const ComicsContainer = (props) => {
-  console.log("Props<>>>>>>", props.allComics);
   if (props.allComics.length) {
     const comicElements = props.allComics.map((comic) => (
       <Comic
