@@ -14,7 +14,7 @@ const Comic = (props) => {
         <img
           className="comic-img"
           src={`${props.img.path}.${props.img.extension}`}
-          alt="poster"
+          alt={props.title}
           id={props.id}
         />
       </Link>
@@ -28,7 +28,6 @@ const Comic = (props) => {
       >
         <h2 className="comic-title">{props.title}</h2>
         <p className="comic-price">Price: {!props.printPrice ? "Not Available" : `$${props.printPrice}`} </p>
-        
       </Link>
     </div>
   );

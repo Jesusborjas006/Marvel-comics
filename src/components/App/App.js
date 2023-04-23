@@ -4,8 +4,9 @@ import Form from "../Form/Form";
 import Navbar from "../Navbar/Navbar";
 import "./App.css";
 import md5 from "md5";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import ComicDetails from "../ComicDetails/ComicDetails";
+import ErrorPage from "../ErrorPage";
 
 function App() {
   const [comics, setComics] = useState({});
@@ -35,7 +36,7 @@ function App() {
         }
       })
       .then((data) => {
-        console.log(data.data.results)
+        console.log(data.data.results);
         setComics(data.data.results);
       })
       .catch((error) => setError(error));
@@ -79,25 +80,30 @@ function App() {
       <Navbar toggle={toggleWithLogo} />
       {displayForm && <Form sortMovieFunc={updatedSort} />}
 
-      {error !== "" && <h2 className="error-message">Failed to revieve data</h2>}
-      <Route
-        exact
-        path="/"
-        render={() => (
-          <ComicsContainer
-            allComics={comics}
-            toggle={toggleForm}
-            comicClicked={getComicID}
-          />
-        )}
-      />
+      {error !== "" && (
+        <h2 className="error-message">Failed to revieve data</h2>
+      )}
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <ComicsContainer
+              allComics={comics}
+              toggle={toggleForm}
+              comicClicked={getComicID}
+            />
+          )}
+        />
 
-      <Route
-        path="/comicDetails/:id"
-        render={() => (
-          <ComicDetails toggle={toggleForm} comicId={specificComicID} />
-        )}
-      />
+        <Route
+          path="/comicDetails/:id"
+          render={() => (
+            <ComicDetails toggle={toggleForm} comicId={specificComicID} />
+          )}
+        />
+        <Route path="*" render={() => <ErrorPage />} />
+      </Switch>
     </div>
   );
 }
