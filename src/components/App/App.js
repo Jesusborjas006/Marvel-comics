@@ -27,7 +27,11 @@ function App() {
   useEffect(() => {
     fetch(getUrl())
       .then((response) => response.json())
-      .then((data) => setComics(data.data.results));
+      .then((data) => {
+        console.log(data.data.results)
+        setComics(data.data.results)
+      });
+      
   }, []);
 
   const toggleForm = () => {

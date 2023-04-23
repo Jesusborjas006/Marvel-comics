@@ -11,7 +11,6 @@ const Form = (props) => {
       <form className="form" onChange={() => handleClick()}>
         <select className="select-input">
           <option value="">Sort</option>
-          <option value="Date">Date</option>
           <option value="Issue Number">Issue Number</option>
           <option value="Low Price">Price (Low to High)</option>
           <option value="High Price">Price (High to Low)</option>
