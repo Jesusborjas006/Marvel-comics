@@ -5,6 +5,7 @@ import md5 from "md5";
 
 const ComicDetails = (props) => {
   const [comicDetails, setComicDetails] = useState({});
+  console.log(comicDetails);
 
   const getSpecificUrl = (id) => {
     let publicKey = "ff0d5561d11fcd117359f7100e6820aa";
@@ -37,9 +38,20 @@ const ComicDetails = (props) => {
             />
           </div>
           <div className="detail-text-container">
-            <h2 className="detail-title">{comicDetails.data.results[0].title}</h2>
-            <p className="description">{comicDetails.data.results[0].description}</p>
-            <p className="print-price"><span>Print Price:</span> ${comicDetails.data.results[0].prices[0].price}</p>
+            <h2 className="detail-title">
+              {comicDetails.data.results[0].title}
+            </h2>
+            {comicDetails.data.results[0].description === "" ? (
+              <p className="description">Description not Available</p>
+            ) : (
+              <p className="description">
+                {comicDetails.data.results[0].description}
+              </p>
+            )}
+            <p className="print-price">
+              <span>Print Price:</span> $
+              {comicDetails.data.results[0].prices[0].price}
+            </p>
           </div>
         </div>
       </div>
