@@ -12,8 +12,6 @@ function App() {
   const [displayForm, setDisplayForm] = useState(true);
   const [specificComicID, setSpecificComicID] = useState(null);
 
-  console.log("specificId in APP<>>>>>>>>>", specificComicID);
-
   const getUrl = () => {
     let publicKey = "ff0d5561d11fcd117359f7100e6820aa";
     let privateKey = "c1c898aabe4d8540d3c5a2f4d0f4135a8195d7bb";
@@ -21,7 +19,7 @@ function App() {
     let stringToHash = ts + privateKey + publicKey;
     let hash = md5(stringToHash);
     let baseUrl = "http://gateway.marvel.com/v1/public/comics";
-    let limit = 10;
+    let limit = 20;
     let url = `${baseUrl}?limit=${limit}&ts=${ts}&apikey=${publicKey}&hash=${hash}`;
     return url;
   };
@@ -29,7 +27,7 @@ function App() {
   useEffect(() => {
     fetch(getUrl())
       .then((response) => response.json())
-      .then((data) => setComics(data));
+      .then((data) => setComics(data.data.results));
   }, []);
 
   const toggleForm = () => {
@@ -44,12 +42,31 @@ function App() {
     setSpecificComicID(id);
   };
 
-  console.log("Component rendered");
+  const updatedSort = (type) => {
+    let result = [...comics];
+
+    if (type === "Issue Number") {
+      result.sort((a, b) => {
+        return a.issueNumber - b.issueNumber;
+      });
+      setComics(result);
+    } else if (type === "Low Price") {
+      result.sort((a, b) => {
+        return a.prices[0].price - b.prices[0].price;
+      });
+      setComics(result);
+    } else if (type === "High Price") {
+      result.sort((a, b) => {
+        return b.prices[0].price - a.prices[0].price;
+      });
+      setComics(result);
+    }
+  };
 
   return (
     <div>
       <Navbar toggle={toggleWithLogo} />
-      {displayForm && <Form />}
+      {displayForm && <Form sortMovieFunc={updatedSort} />}
 
       <Route
         exact

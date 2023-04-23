@@ -6,3 +6,11 @@ a {
 body {
   background-color: #2b2e4a;
 }
+
+.price-btn {
+  padding: 10px 15px;
+  font-size: 18px;
+  margin-top: 70px;
+  margin-left: 70px;
+  cursor: pointer;
+}

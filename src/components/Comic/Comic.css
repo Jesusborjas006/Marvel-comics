@@ -24,3 +24,8 @@
 .comic-title:hover {
   color: #e84545;
 }
+
+.comic-price {
+  color: #f1f1f1;
+  margin-top: 10px;
+}
