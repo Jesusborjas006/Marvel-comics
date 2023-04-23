@@ -1,6 +1,6 @@
 describe("Comic details page", () => {
   beforeEach(() => {
-    cy.intercept("GET", "http://gateway.marvel.com/v1/public/comics/", {
+    cy.intercept("GET", "http://gateway.marvel.com/v1/public/comics/1308", {
       statusCode: 200,
       fixture: "comic.json",
     });
