@@ -31,7 +31,7 @@ function App() {
         if (response.ok) {
           return response.json();
         } else {
-          throw new Error("Failed to revieve data");
+          throw new Error("Failed to retrieve data");
         }
       })
       .then((data) => {
