@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const Navbar = (props) => {
   return (
@@ -12,3 +13,7 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
+
+Navbar.propTypes = {
+  toggle: PropTypes.func,
+};

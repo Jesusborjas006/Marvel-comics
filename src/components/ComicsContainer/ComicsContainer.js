@@ -1,5 +1,6 @@
 import "./ComicsContainer.css";
 import Comic from "../Comic/Comic";
+import PropTypes from "prop-types";
 
 const ComicsContainer = (props) => {
   if (props.allComics.length) {
@@ -22,3 +23,9 @@ const ComicsContainer = (props) => {
 };
 
 export default ComicsContainer;
+
+ComicsContainer.prototypes = {
+  allComics: PropTypes.array,
+  toggle: PropTypes.func,
+  comicClicked: PropTypes.func,
+};

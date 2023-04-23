@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./ComicDetails.css";
 import { Link } from "react-router-dom";
 import md5 from "md5";
+import PropTypes from "prop-types";
 
 const ComicDetails = (props) => {
   const [comicDetails, setComicDetails] = useState({});
@@ -49,8 +50,10 @@ const ComicDetails = (props) => {
               </p>
             )}
             <p className="print-price">
-              <span>Print Price:</span> $
-              {comicDetails.data.results[0].prices[0].price}
+              <span>Print Price:</span>
+              {comicDetails.data.results[0].prices[0].price !== 0
+                ? ` $${comicDetails.data.results[0].prices[0].price}`
+                : "Not available"}
             </p>
           </div>
         </div>
@@ -60,3 +63,8 @@ const ComicDetails = (props) => {
 };
 
 export default ComicDetails;
+
+ComicDetails.prototypes = {
+  toggle: PropTypes.func,
+  comicId: PropTypes.number
+}

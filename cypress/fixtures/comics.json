@@ -1,17 +1,22 @@
-[
-  {
-    "id": 1,
-    "title": "Iron Man",
-    "prices": {"price": 1} 
-  },
-  {
-    "id": 2,
-    "title": "Captain America",
-    "prices": {"price": 1} 
-  },
-  {
-    "id": 3,
-    "title": "The Avengers",
-    "prices": {"price": 3} 
-  }
-]
+{
+  "comics": [
+    {
+      "id": 1308,
+      "title": "Marvel Age Spider-Man Vol. 2: Everyday Hero (Digest)",
+      "price": 5.99,
+      "description": "The Marvel Age of Comics continues! This time around, Spidey meets his match against such classic villains as Electro and the Lizard, and faces the return of one of his first foes: the Vulture! Plus: Spider-Man vs. the Living Brain, Peter Parker's fight with Flash Thompson, and the wall-crawler tackles the high-flying Human Torch!"
+    },
+    {
+      "id": 1308,
+      "title": "Marvel Age Spider-Man Vol. 2: Everyday Hero (Digest)",
+      "price": 5.99,
+      "description": "The Marvel Age of Comics continues! This time around, Spidey meets his match against such classic villains as Electro and the Lizard, and faces the return of one of his first foes: the Vulture! Plus: Spider-Man vs. the Living Brain, Peter Parker's fight with Flash Thompson, and the wall-crawler tackles the high-flying Human Torch!"
+    },
+    {
+      "id": 1308,
+      "title": "Marvel Age Spider-Man Vol. 2: Everyday Hero (Digest)",
+      "price": 5.99,
+      "description": "The Marvel Age of Comics continues! This time around, Spidey meets his match against such classic villains as Electro and the Lizard, and faces the return of one of his first foes: the Vulture! Plus: Spider-Man vs. the Living Brain, Peter Parker's fight with Flash Thompson, and the wall-crawler tackles the high-flying Human Torch!"
+    }
+  ]
+}

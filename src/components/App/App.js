@@ -35,6 +35,7 @@ function App() {
         }
       })
       .then((data) => {
+        console.log(data.data.results)
         setComics(data.data.results);
       })
       .catch((error) => setError(error));
