@@ -1,4 +1,5 @@
 import "./Form.css";
+import PropTypes from 'prop-types';
 
 const Form = (props) => {
   const handleClick = () => {
@@ -26,3 +27,7 @@ const Form = (props) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  sortMovieFunc: PropTypes.func,
+};

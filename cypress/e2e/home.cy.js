@@ -5,7 +5,7 @@ describe("template spec", () => {
       fixture: "comics.json",
     });
 
-    cy.visit("http://localhost:3000/");
+    cy.visit("http://localhost:3000/")
   });
 
   it("Should have a logo", () => {

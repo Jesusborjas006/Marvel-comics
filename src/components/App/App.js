@@ -11,6 +11,7 @@ function App() {
   const [comics, setComics] = useState({});
   const [displayForm, setDisplayForm] = useState(true);
   const [specificComicID, setSpecificComicID] = useState(null);
+  const [error, setError] = useState("");
 
   const getUrl = () => {
     let publicKey = "ff0d5561d11fcd117359f7100e6820aa";
@@ -26,12 +27,18 @@ function App() {
 
   useEffect(() => {
     fetch(getUrl())
-      .then((response) => response.json())
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Failed to retrieve data");
+        }
+      })
       .then((data) => {
         console.log(data.data.results)
-        setComics(data.data.results)
-      });
-      
+        setComics(data.data.results);
+      })
+      .catch((error) => setError(error));
   }, []);
 
   const toggleForm = () => {
@@ -72,6 +79,7 @@ function App() {
       <Navbar toggle={toggleWithLogo} />
       {displayForm && <Form sortMovieFunc={updatedSort} />}
 
+      {error !== "" && <h2 className="error-message">Failed to revieve data</h2>}
       <Route
         exact
         path="/"
