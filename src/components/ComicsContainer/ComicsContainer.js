@@ -17,8 +17,6 @@ const ComicsContainer = (props) => {
     ));
 
     return <div className="comics-container">{comicElements}</div>;
-  } else {
-    <p>Loading...</p>;
   }
 };
 
