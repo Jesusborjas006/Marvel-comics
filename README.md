@@ -4,7 +4,7 @@
 This application displays a variety of Marvel Comics for users to look at. The user is able to see more details about a certain comic and they are able to sort them. This application works well for mobile users too!
 
 ### Installation Instructions:
-1. Fork and clone [this repo](https://github.com/).
+1. Fork and clone [this repo](https://github.com/Jesusborjas006/Marvel-comics).
 1. Copy the SSH key from the green "Code" button.
 1. In your terminal, use the command `git clone git@github.com:[https://github.com/Jesusborjas006/Marvel-comics]`.
 1. Run `npm install`.
