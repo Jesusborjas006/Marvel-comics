@@ -6,7 +6,7 @@ This application displays a variety of Marvel Comics for users to look at. The u
 ### Installation Instructions:
 1. Fork and clone [this repo](https://github.com/).
 1. Copy the SSH key from the green "Code" button.
-1. In your terminal, use the command `git clone git@github.com:[https://github.com/qrispi/a-cats-tail]`.
+1. In your terminal, use the command `git clone git@github.com:[https://github.com/Jesusborjas006/Marvel-comics]`.
 1. Run `npm install`.
 1. Do NOT run `npm audit fix --force` when prompted.
 1. Open the repo in your text editor to make any changes or inspect code.
